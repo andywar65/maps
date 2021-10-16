@@ -1,6 +1,6 @@
 from pathlib import Path
 from django.contrib.gis.utils import LayerMapping
-from maps.models import Border
+from .models import Border
 
 # Auto-generated `LayerMapping` dictionary for Border model
 border_mapping = {
@@ -14,8 +14,9 @@ border_mapping = {
     'geom': 'MULTIPOLYGON',
 }
 
-shapes = Path(__file__).resolve().parent / 'prova_qgis' / 'comuni.shp'
+shp_path = Path(__file__).resolve().parent / 'prova_qgis' / 'comuni.shp'
+shp_str = str(shp_path)
 
 def run(verbose=True):
-    lm = LayerMapping(Border, shapes, border_mapping, transform=True)
+    lm = LayerMapping(Border, shp_str, border_mapping, transform=True)
     lm.save(strict=True, verbose=verbose)

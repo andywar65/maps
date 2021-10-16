@@ -23,11 +23,17 @@ class Border(models.Model):
         if a:
             if isinstance( a, ( Polygon, )):
                 self.geom_lo = MultiPolygon(a)
-                self.geom_md = MultiPolygon(b)
-                self.geom_hi = MultiPolygon(c)
             elif isinstance( a, ( MultiPolygon, )):
                 self.geom_lo = a
+        if b:
+            if isinstance( b, ( Polygon, )):
+                self.geom_md = MultiPolygon(b)
+            elif isinstance( b, ( MultiPolygon, )):
                 self.geom_md = b
+        if c:
+            if isinstance( c, ( Polygon, )):
+                self.geom_hi = MultiPolygon(c)
+            elif isinstance( c, ( MultiPolygon, )):
                 self.geom_hi = c
         super(Border, self).save(*args, **kwargs)
 
