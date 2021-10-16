@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils.translation import gettext as _
 from django.contrib.gis.db import models
-#from django.contrib.gis.geos import Point, Polygon, LineString, MultiPolygon
+from django.contrib.gis.geos import Polygon, MultiPolygon
 
 class Border(models.Model):
     gid = models.BigIntegerField()
@@ -32,7 +32,7 @@ class Border(models.Model):
         super(Border, self).save(*args, **kwargs)
 
     def __str__(self):
-        return self.app_name
+        return self.name
 
     class Meta:
         verbose_name = _('Border')
