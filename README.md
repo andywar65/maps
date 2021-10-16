@@ -1,2 +1,2 @@
 # maps
-A django app that stores postgis objects fetched by Leaflet on the frontend
+A django app that stores PostGIS objects fetched by Leaflet on the frontend
