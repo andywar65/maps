@@ -38,16 +38,3 @@ class Border(models.Model):
         verbose_name = _('Border')
         verbose_name_plural = _('Borders')
         ordering = ('name', )
-
-
-# Auto-generated `LayerMapping` dictionary for Border model
-comuni_mapping = {
-    'gid': 'gid',
-    'gid2': '__gid',
-    'comune_bel': 'comune_bel',
-    'avdicm': 'avdicm',
-    'classid': 'classid',
-    'comune_ist': 'comune_ist',
-    'name': 'comune_com',
-    'geom': 'MULTIPOLYGON',
-}
