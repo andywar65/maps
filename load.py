@@ -14,6 +14,7 @@ border_mapping = {
     'geom': 'MULTIPOLYGON',
 }
 
+#add your path to shape file
 shp_path = Path(__file__).resolve().parent / 'prova_qgis' / 'comuni.shp'
 shp_str = str(shp_path)
 
