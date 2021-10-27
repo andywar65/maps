@@ -4,6 +4,14 @@ from rest_framework_gis import filters
 from .models import Border
 from .serializers import *
 
+class BordersApiView(generics.ListAPIView):
+
+    bbox_filter_field = "geom"
+    filter_backends = (filters.InBBoxFilter,)
+    queryset = Border.objects.all()
+    serializer_class = BorderSerializer
+    bbox_filter_include_overlapping = True
+
 class BordersApiLoView(generics.ListAPIView):
 
     bbox_filter_field = "geom_lo"
