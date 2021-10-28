@@ -12,15 +12,15 @@ map.locate()
 async function load_borders() {
   let border_url = ``
   const zoom = map.getZoom()
-  console.log(zoom)
+  //console.log(zoom)
   if (zoom<10){
-    border_url = `/map_api/borders/lo/?in_bbox=${map.getBounds().toBBoxString()}`
+    border_url = `/map-api/borders/lo/?in_bbox=${map.getBounds().toBBoxString()}`
   } else if (zoom<12){
-    border_url = `/map_api/borders/md/?in_bbox=${map.getBounds().toBBoxString()}`
+    border_url = `/map-api/borders/md/?in_bbox=${map.getBounds().toBBoxString()}`
   } else if (zoom<15){
-    border_url = `/map_api/borders/hi/?in_bbox=${map.getBounds().toBBoxString()}`
+    border_url = `/map-api/borders/hi/?in_bbox=${map.getBounds().toBBoxString()}`
   } else {
-    border_url = `/map_api/borders/full/?in_bbox=${map.getBounds().toBBoxString()}`
+    border_url = `/map-api/borders/full/?in_bbox=${map.getBounds().toBBoxString()}`
   }
   const response = await fetch(border_url)
   const geojson = await response.json()
